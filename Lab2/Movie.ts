@@ -10,8 +10,9 @@ export default class Movie {
     Poster: string;
     Metascore: string;
     imdbRating: string;
+    imdbID: string;
 
-    constructor(obj : Movie | any ) {
+    constructor(obj: Movie | any) {
         this.Title = obj.Title;
         this.Year = obj.Year;
         this.Rated = obj.Rated;
@@ -23,5 +24,6 @@ export default class Movie {
         this.Poster = obj.Poster;
         this.Metascore = obj.Metascore;
         this.imdbRating = obj.imdbRating;
+        this.imdbID = obj.imdbID;
     }
 }
