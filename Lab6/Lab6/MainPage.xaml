@@ -12,8 +12,8 @@
             <CollectionView x:Name="DaysList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#aaf" Margin="5" MinimumHeightRequest="96">
-                            <StackLayout Orientation="Vertical" WidthRequest="200">
+                        <Frame BackgroundColor="#aaf" Margin="5">
+                            <StackLayout Orientation="Vertical" WidthRequest="200" HeightRequest="134">
                                 <Label TextColor="Black" Text="{Binding Path=DateString}"/>
                                 <Label TextColor="Black" Text="{Binding Path=MaxMinTemp}"/>
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center">
@@ -21,7 +21,11 @@
                                        MaximumHeightRequest="64" MaximumWidthRequest="64"/>
                                     <Label TextColor="Black" Text="{Binding Path=Description}"/>
                                 </StackLayout>
-                                <Button Text="Details"></Button>
+                                <Button Text="Details"
+                                        CommandParameter="{Binding .}" 
+                                        Command="{Binding OpenDetailsCommand}"
+                                        IsEnabled="True"
+                                        ></Button>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

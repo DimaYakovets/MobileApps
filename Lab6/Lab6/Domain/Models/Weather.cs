@@ -32,6 +32,12 @@ namespace Lab6.Domain.Models
 
     public class WeatherRecord
     {
+        public string DateString => $"{dt_txt.Substring(dt_txt.IndexOf(' '))}";
+        public string MaxMinTemp => $"Temp: {Math.Round(Main.temp_min - 273.15)}°C / {Math.Round(Main.temp_max - 273.15)}°C";
+        public string FeelsLike => $"Feels like: {Math.Round(Main.feels_like - 273.15)}°C";
+        public string ImageURL => $"https://openweathermap.org/img/wn/{Weather[0].icon}@4x.png";
+        public string Humidity => $"Humidity: {(Main.humidity)}%";
+
         public int Dt { get; set; }
         public Main Main { get; set; }
         public List<Description> Weather { get; set; }

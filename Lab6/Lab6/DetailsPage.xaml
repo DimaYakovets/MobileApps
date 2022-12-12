@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lab6.DetailsPage"
              Title="DetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <StackLayout>
+            <Button x:Name="BackBtn" Clicked="BackBtn_Clicked" Text="Back" WidthRequest="200"></Button>
+            <CollectionView x:Name="HoursList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#aaf" Margin="5">
+                            <StackLayout Orientation="Vertical" WidthRequest="200" HeightRequest="148">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <Image Source="https://openweathermap.org/img/wn/04n@4x.png" InputTransparent="True" 
+                                       MaximumHeightRequest="64" MaximumWidthRequest="64"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Black" Text="Forecast for: "/>
+                                    <Label TextColor="Black" Text="{Binding Path=DateString}"/>
+                                </StackLayout>
+                                <Label TextColor="Black" Text="{Binding Path=MaxMinTemp}"/>
+                                <Label TextColor="Black" Text="{Binding Path=FeelsLike}"/>
+                                <Label TextColor="Black" Text="{Binding Path=Humidity}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
